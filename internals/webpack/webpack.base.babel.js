@@ -18,7 +18,7 @@ module.exports = (options) => ({
   }, options.output), // Merge with env dependent settings
   module: {
     loaders: [{
-      test: /\.js$/, // Transform all .js files required somewhere with Babel
+      test: /\.jsx?$/, // Transform all .js files required somewhere with Babel/
       loader: 'babel',
       exclude: /node_modules/,
       query: options.babelQuery,

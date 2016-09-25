@@ -1,16 +1,14 @@
 {
-  "name": "react-boilerplate",
-  "version": "3.2.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "coindash",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mxstbr/react-boilerplate.git"
+    "url": "git://github.com/edenworky/Coindash.git"
   },
   "engines": {
     "npm": ">=3"
   },
-  "author": "Max Stoiber",
-  "license": "MIT",
+  "author": "Coindash",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
@@ -110,7 +108,7 @@
       ],
       "comma-dangle": [
         2,
-        "always-multiline"
+        "only-multiline"
       ],
       "import/imports-first": 0,
       "import/newline-after-import": 0,
@@ -144,6 +142,7 @@
       "react/jsx-no-target-blank": 0,
       "react/require-extension": 0,
       "react/self-closing-comp": 0,
+      "react/prefer-es6-class": 0,
       "require-yield": 0
     },
     "settings": {
@@ -247,7 +246,7 @@
     "css-loader": "0.25.0",
     "enzyme": "2.4.1",
     "eslint": "3.5.0",
-    "eslint-config-airbnb": "11.1.0",
+    "eslint-config-airbnb": "^10.0.1",
     "eslint-import-resolver-webpack": "0.5.1",
     "eslint-plugin-import": "1.14.0",
     "eslint-plugin-jsx-a11y": "2.2.2",
