@@ -13,18 +13,26 @@
 
 import React from 'react';
 
+import TopNav from 'components/TopNav';
+import SideNav from 'components/SideNav';
+
 import styles from './styles.css';
 
 const App = React.createClass({ // eslint-disable-line react/prefer-stateless-function
-
   propTypes: {
     children: React.PropTypes.node,
   },
 
   render() {
     return (
-      <div className={styles.container}>
-        {React.Children.toArray(this.props.children)}
+      <div className={styles.rootContainer}>
+        <TopNav />
+        <div className={styles.innerContainer}>
+          <SideNav />
+          <div className={styles.appContainer}>
+            {React.Children.toArray(this.props.children)}
+          </div>
+        </div>
       </div>
     );
   }

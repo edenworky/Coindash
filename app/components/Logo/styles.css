@@ -1,0 +1,6 @@
+.logoContainer { /* stylelint-disable */
+  flex: 0 0 auto;
+}
+.logo {
+  text-transform: uppercase;
+}

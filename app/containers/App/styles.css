@@ -4,6 +4,31 @@
  * App container styles
  */
 
-.container {
-  display: block;
+html, body, :global(#app) {
+  height: 100%;
+}
+
+.rootContainer {
+  height: 100%;
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.innerContainer {
+  flex: 1;
+
+  display: flex;
+}
+
+.appContainer {
+  flex: 1;
+
+  padding: 20px;
+}
+
+:global(.resetAnchor) {
+  color: inherit;
+  text-decoration: inherit;
 }
