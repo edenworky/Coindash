@@ -91,5 +91,4 @@ export class Wallet {
 }
 
 const W = Wallet.walletFromDisk();
-Object.freeze(W);
 export default W;

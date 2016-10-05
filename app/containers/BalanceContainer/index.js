@@ -26,15 +26,15 @@ export class BalanceContainer extends React.Component { // eslint-disable-line r
   }
 
   componentDidMount() {
-    if (this.props.token == null) {
+    if (!this.props.token) {
       return;
     }
 
     this.setState({name: this.props.token.symbol});
 
-    var data = $.param(this.props.token.balanceCallData());
-    var serverUrl = "https://rpc.myetherwallet.com:8443/api.mew";
-    var parentObj = this;
+    let data = $.param(this.props.token.balanceCallData());
+    let serverUrl = "https://rpc.myetherwallet.com:8443/api.mew";
+    let parentObj = this;
     $.ajax({
         url: serverUrl,
         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},

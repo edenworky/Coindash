@@ -1,6 +1,6 @@
 /**
 *
-* AddTokenForm
+* TokenForm
 *
 */
 
@@ -22,7 +22,7 @@ const schema = {
   }
 };
 
-class AddTokenForm extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class TokenForm extends React.Component { // eslint-disable-line react/prefer-stateless-function
 	constructor(props) {    
 	    super(props);		
 	}
@@ -47,4 +47,4 @@ class AddTokenForm extends React.Component { // eslint-disable-line react/prefer
     }
 }
 
-export default AddTokenForm;
+export default TokenForm;

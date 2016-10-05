@@ -15,7 +15,7 @@ import { BalancesContainer } from '../BalancesContainer/index';
 export class Dashboard extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div >
+      <div className={styles.dashboard}>
         <BalancesContainer/>
       </div>
       // <div className={styles.dashboard}>

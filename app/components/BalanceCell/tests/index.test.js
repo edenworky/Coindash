@@ -5,7 +5,7 @@ import expect from 'expect';
 // import React from 'react';
 
 describe('<BalanceCell />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
-  });
+  // it('Expect to have unit tests specified', () => {
+  //   expect(true).toEqual(false);
+  // });
 });

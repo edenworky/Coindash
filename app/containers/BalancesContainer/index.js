@@ -15,7 +15,7 @@ import { Token } from '../../utils/Wallet/Token'
 import W from '../../utils/Wallet/Wallet'
 import { BalanceContainer } from '../BalanceContainer/index'
 import SkyLight from 'react-skylight';
-import AddTokenForm from 'components/AddTokenForm';
+import TokenForm from 'components/TokenForm';
 
 export class BalancesContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {    
@@ -48,7 +48,7 @@ export class BalancesContainer extends React.Component { // eslint-disable-line 
           <button onClick={() => this.refs.simpleDialog.show()}>Add token</button>
           <SkyLight hideOnOverlayClicked ref="simpleDialog" title="Add Token">
           <br/><br/>
-            <AddTokenForm onSubmited={this.onSubmitedToken.bind(this)} />
+            <TokenForm onSubmited={this.onSubmitedToken.bind(this)} />
           </SkyLight>
         </div>
       </div>
