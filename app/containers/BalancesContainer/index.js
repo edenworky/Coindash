@@ -12,6 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import styles from './styles.css';
 import { Token } from './Token'
+import { BalanceContainer } from '../BalanceContainer/index'
 
 export class BalancesContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {    
@@ -25,6 +26,11 @@ export class BalancesContainer extends React.Component { // eslint-disable-line 
   componentDidMount() {    
 
     var hardCodedTokens = [{
+                "address": "",
+                "symbol" : "ETH",
+                "decimal" : 0
+              },
+              {
                 "address": "0xbb9bc244d798123fde783fcc1c72d3bb8c189413",
                 "symbol": "DAO",
                 "decimal": 16
@@ -63,13 +69,12 @@ export class BalancesContainer extends React.Component { // eslint-disable-line 
   render() {
     return (
       <div>
-        Addresses:
         <div>
           <ul className="user-list">
             {this.state.tokens.map(function(token) {
               return (
                 <li key={token.contractAddress}>
-                  {token.prettyName()}
+                  <BalanceContainer token={ token } />
                 </li>
               );
             })}
