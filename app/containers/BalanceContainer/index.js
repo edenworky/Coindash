@@ -12,8 +12,8 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import styles from './styles.css';
 import BalanceCell from 'components/BalanceCell';
-import $ from 'jquery'; 
 import BigNumber from 'bignumber.js';
+import { AjaxUtils } from '../../utils/AjaxUtils'
 
 export class BalanceContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {    
@@ -32,32 +32,37 @@ export class BalanceContainer extends React.Component { // eslint-disable-line r
 
     this.setState({name: this.props.token.symbol});
 
-    let data = $.param(this.props.token.balanceCallData());
+    let data = AjaxUtils.queryParams(this.props.token.balanceCallData());
+    let data2 = $.param(this.props.token.balanceCallData());
     let serverUrl = "https://rpc.myetherwallet.com:8443/api.mew";
     let parentObj = this;
-    $.ajax({
-        url: serverUrl,
-        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-        type: 'POST',
-        data: data,
-        success: function(data) {
-          if (!data.error) {
-            if (parentObj.props.token.symbol == "ETH") {
-              parentObj.props.token.balance = data.data.balance;
-              var _balance = parentObj.props.token.weiBalance();
-              this.setState({balance: _balance});
-            }
-            else {
-              var decimal = parentObj.props.token.decimal;
-              var _balance = new BigNumber(data.data).div(new BigNumber(10).pow(decimal));
-              this.setState({balance: _balance});
-            }
-          }
-        }.bind(this),
-        error: function(xhr, status, err) {
-          console.error("ERRORRRR", status, err.toString());
-        }.bind(this)
-      });
+
+    fetch(serverUrl, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: data
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (!data.error) {
+        if (parentObj.props.token.symbol == "ETH") {
+          parentObj.props.token.balance = data.data.balance;
+          var _balance = parentObj.props.token.weiBalance();
+          this.setState({balance: _balance});
+        }
+        else {
+          var decimal = parentObj.props.token.decimal;
+          var _balance = new BigNumber(data.data).div(new BigNumber(10).pow(decimal));
+          this.setState({balance: _balance});
+        }
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
   render() {
