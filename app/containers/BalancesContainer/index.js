@@ -12,7 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import styles from './styles.css';
 import { Token } from '../../utils/Wallet/Token'
-import W from '../../utils/Wallet/Wallet'
+import Wallet from '../../utils/Wallet/Wallet'
 import { BalanceContainer } from '../BalanceContainer/index'
 import SkyLight from 'react-skylight';
 import TokenForm from 'components/TokenForm';
@@ -27,7 +27,7 @@ export class BalancesContainer extends React.Component { // eslint-disable-line 
   }
 
   componentDidMount() {    
-    this.setState({tokens: W.getTokens()})
+    this.setState({tokens: Wallet.getTokens()})
   }
 
   render() {
@@ -58,7 +58,7 @@ export class BalancesContainer extends React.Component { // eslint-disable-line 
 
   onSubmitedToken(symbol, address, decimal) {
     W.addToken(symbol, address, parseInt(decimal));
-    this.setState({tokens: W.getTokens()})
+    this.setState({tokens: Wallet.getTokens()})
   }
 
 }

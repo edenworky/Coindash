@@ -1,8 +1,8 @@
 export class AjaxUtils {
 	static queryParams(source) {
-	  var array = [];
+	  let array = [];
 
-	  for(var key in source) {
+	  for(let key in source) {
 	  	let data = source[key];
 	  	if (Object.prototype.isPrototypeOf(data)) {
 	  		array.push(AjaxUtils.encodeSubObject(key, data));
@@ -16,9 +16,9 @@ export class AjaxUtils {
 	}
 
 	static encodeSubObject(originalKey, object) {
-		var array = [];
+		let array = [];
 
-		for(var key in object) {
+		for(let key in object) {
 			let data = object[key];
 			if (Object.prototype.isPrototypeOf(data)) {
 				array.push("%5B" + key + "%5D" + AjaxUtils.encodeSubObject(data));

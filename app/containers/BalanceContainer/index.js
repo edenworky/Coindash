@@ -33,7 +33,6 @@ export class BalanceContainer extends React.Component { // eslint-disable-line r
     this.setState({name: this.props.token.symbol});
 
     let data = AjaxUtils.queryParams(this.props.token.balanceCallData());
-    let data2 = $.param(this.props.token.balanceCallData());
     let serverUrl = "https://rpc.myetherwallet.com:8443/api.mew";
     let parentObj = this;
 

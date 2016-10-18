@@ -1,8 +1,8 @@
 import { Token } from './Token'
 
-export class Wallet {
+export class ETHWallet {
 	static walletFromDisk() {
-		return new Wallet();
+		return new ETHWallet();
 	}
 
 	constructor(props) {    
@@ -11,7 +11,7 @@ export class Wallet {
 
 	// tokens
 	getTokens() {
-		var allTokens = Wallet.allTokens();
+		var allTokens = ETHWallet.allTokens();
 	    var _tokens = [];
 	    for (var i = 0; i < allTokens.length; i++) {
 	      let address = allTokens[i].address;
@@ -48,7 +48,7 @@ export class Wallet {
 	}
 
 	static allTokens() {
-		return Wallet.savedTokens().concat(Wallet.hardcodedTokes());
+		return ETHWallet.savedTokens().concat(ETHWallet.hardcodedTokes());
 	}
 
 
@@ -90,5 +90,5 @@ export class Wallet {
 	}
 }
 
-const W = Wallet.walletFromDisk();
-export default W;
+const Wallet = ETHWallet.walletFromDisk();
+export default Wallet;
