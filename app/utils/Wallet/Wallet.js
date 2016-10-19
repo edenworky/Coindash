@@ -6,7 +6,9 @@ export class ETHWallet {
 	}
 
 	constructor(props) {    
-	    this.walletAddress = "d7e10d75cf87abc5a2f34a83ccf27cd54108cbc3";
+	    this.walletAddresses = [
+	    	"d7e10d75cf87abc5a2f34a83ccf27cd54108cbc3"
+	    ];
 	}
 
 	// tokens
@@ -18,16 +20,15 @@ export class ETHWallet {
 	      let symbol = allTokens[i].symbol;
 	      let decimal = allTokens[i].decimal;
 
-    	  console.log("token symbol: " + symbol + ", address: " + address + ", decimal: " + decimal);
-
-
 	      if (address == null || symbol == null || decimal == null) continue;
 
-	      _tokens.push(new Token(allTokens[i].address,
-	                             this.walletAddress, 
+	      for (let idx in this.walletAddresses) {
+	      	_tokens.push(new Token(allTokens[i].address,
+	                             this.walletAddresses[idx], 
 	                             allTokens[i].symbol, 
 	                             allTokens[i].decimal)
 	                  );
+	      }
 	    }
 	    return _tokens;
 	}

@@ -45,7 +45,6 @@ export class BalanceContainer extends React.Component { // eslint-disable-line r
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (!data.error) {
         if (parentObj.props.token.symbol == "ETH") {
           parentObj.props.token.balance = data.data.balance;
