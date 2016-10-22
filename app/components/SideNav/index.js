@@ -22,6 +22,11 @@ const buttons = [
     id: 'investments',
     route: '/investments',
     text: messages.investments
+  },
+  {
+    id: 'transactions',
+    route: '/transactions',
+    text: messages.transactions
   }
 ];
 

@@ -13,5 +13,9 @@ export default defineMessages({
   investments: {
     id: 'app.components.SideNav.investments',
     defaultMessage: 'Investments',
+  },
+  transactions: {
+    id: 'app.components.SideNav.transactions',
+    defaultMessage: 'Transactions',
   }
 });
